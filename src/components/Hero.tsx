@@ -16,10 +16,10 @@ const Hero = () => {
             Building Scalable Digital Solutions
           </h1>
 
-          <h2 className="text-lg font-medium text-gray-700">
+          {/* <h2 className="text-lg font-medium text-gray-700">
             Founded & led by{" "}
             <span className="text-blue-600 font-semibold">Anisha Birla</span>
-          </h2>
+          </h2> */}
 
           {/* Typewriter */}
           <div className="text-gray-600 text-lg">
