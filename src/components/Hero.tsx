@@ -1,8 +1,11 @@
 import profile from "../assets/pic6.png";
 import Typewriter from "react-typewriter-effect";
-
+import { useState } from "react";
 const Hero = () => {
+  
+  const [loaded, setLoaded] = useState(false);
   return (
+     
     <section
       id="home"
       className="min-h-[calc(100vh-80px)] flex items-center bg-gray-50 pt-24"
@@ -97,12 +100,15 @@ const Hero = () => {
             <img
               src={profile}
               alt="Anisha Birla"
-              className="
+              className={`
                 w-[300px] lg:w-[330px]
                 max-h-[540px]
                 object-cover
-                rounded-3xl 
-              "
+                rounded-3xl transition-opacity duration-500 ease-out
+          ${loaded ? "opacity-100" : "opacity-0"}
+              `}
+               onLoad={() => setLoaded(true)}
+        loading="eager" // IMPORTANT for hero/profile
             />
 
             {/* Accent */}
