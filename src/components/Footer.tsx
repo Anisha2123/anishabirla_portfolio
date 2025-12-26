@@ -19,7 +19,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <h3 className="text-xl font-semibold text-slate-900">
-              BirlaTech Solutions
+              Devlyn
             </h3>
             <p className="text-sm text-slate-600 mt-3 leading-relaxed">
               Your one-stop solution for professional websites, scalable
