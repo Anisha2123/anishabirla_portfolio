@@ -5,119 +5,100 @@ import {
   FaWhatsapp,
   FaCalendarAlt,
   FaMapMarkerAlt,
-  FaClock,
 } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-50 border-t border-slate-200">
-      <div className="max-w-7xl mx-auto px-6 py-14">
+    <footer className="bg-[#020617] text-slate-400 border-t border-slate-800">
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        
+        {/* Top Section: Responsive Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
 
-        {/* Top Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-
-          {/* Brand */}
-          <div>
-            <h3 className="text-xl font-semibold text-slate-900">
-              Devlyn
+          {/* Identity & Mission */}
+          <div className="flex flex-col items-center md:items-start space-y-5">
+            <h3 className="text-2xl font-normal text-white tracking-tight">
+              Anisha <span className="text-blue-500">Birla</span>
             </h3>
-            <p className="text-sm text-slate-600 mt-3 leading-relaxed">
-              Your one-stop solution for professional websites, scalable
-              applications, and modern digital products — built with
-              performance, security, and growth in mind.
+            <p className="text-sm font-light leading-relaxed max-w-xs">
+              Software Engineer specializing in building scalable systems 
+              and performance-driven web architectures with a focus on impact.
             </p>
-
-            {/* Social Icons */}
-            <div className="flex gap-4 mt-5 text-lg text-slate-500">
-              <a href="https://github.com/Anisha2123" target="_blank" rel="noreferrer"
-                className="hover:text-blue-600 transition">
+            
+            {/* Social Icons - Clean & Minimalist */}
+            <div className="flex gap-5 text-xl">
+              <a href="https://github.com/Anisha2123" target="_blank" rel="noreferrer" 
+                 className="hover:text-blue-400 transition-colors duration-300">
                 <FaGithub />
               </a>
-              <a href="https://www.linkedin.com/in/anishabirla/" target="_blank" rel="noreferrer"
-                className="hover:text-blue-600 transition">
+              <a href="https://www.linkedin.com/in/anishabirla/" target="_blank" rel="noreferrer" 
+                 className="hover:text-blue-400 transition-colors duration-300">
                 <FaLinkedin />
               </a>
-              <a href="https://wa.me/916307255290" target="_blank" rel="noreferrer"
-                className="hover:text-green-600 transition">
+              <a href="https://wa.me/916307255290" target="_blank" rel="noreferrer" 
+                 className="hover:text-green-500 transition-colors duration-300">
                 <FaWhatsapp />
               </a>
-              <a href="https://www.instagram.com/wt.aq_ab/?hl=en" target="_blank" rel="noreferrer"
-                className="hover:text-pink-500 transition">
+              <a href="https://www.instagram.com/wt.aq_ab/?hl=en" target="_blank" rel="noreferrer" 
+                 className="hover:text-pink-400 transition-colors duration-300">
                 <FaInstagram />
               </a>
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-sm font-semibold text-slate-900 uppercase tracking-wide mb-4">
-              Quick Links
+          {/* Simplified Navigation */}
+          <div className="flex flex-col items-center md:items-start">
+            <h4 className="text-[11px] font-semibold text-slate-500 uppercase tracking-[0.2em] mb-6">
+              Navigation
             </h4>
-            <ul className="space-y-3 text-sm text-slate-600">
-              <li>
-                <a href="#home" className="hover:text-blue-600 transition">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-blue-600 transition">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="#projects" className="hover:text-blue-600 transition">
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-blue-600 transition">
-                  Contact
-                </a>
-              </li>
+            <ul className="space-y-4 text-sm font-light">
+              <li><a href="#home" className="hover:text-white transition-colors">Home</a></li>
+              <li><a href="#projects" className="hover:text-white transition-colors">Projects</a></li>
+              <li><a href="#experience" className="hover:text-white transition-colors">Experience</a></li>
+              <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
             </ul>
           </div>
 
-          {/* Availability & CTA */}
-          <div>
-            <h4 className="text-sm font-semibold text-slate-900 uppercase tracking-wide mb-4">
-              Availability
+          {/* Availability & Action */}
+          <div className="flex flex-col items-center md:items-start">
+            <h4 className="text-[11px] font-semibold text-slate-500 uppercase tracking-[0.2em] mb-6">
+              Status
             </h4>
-
-            <div className="space-y-3 text-sm text-slate-600">
-              <p className="flex items-center gap-2">
-                <FaMapMarkerAlt className="text-blue-600" />
+            
+            <div className="space-y-4 text-sm font-light mb-8">
+              <p className="flex items-center justify-center md:justify-start gap-3">
+                <FaMapMarkerAlt className="text-blue-500" />
                 India · Remote Worldwide
               </p>
-
-              <p className="flex items-center gap-2">
-                <FaClock className="text-blue-600" />
-                Open for Freelance & Full-Time Roles
-              </p>
+              <div className="flex items-center justify-center md:justify-start gap-3">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span>Available for New Opportunities</span>
+              </div>
             </div>
 
-            {/* Calendly Button */}
+            {/* Calendly CTA - Subtle & Modern */}
             <a
               href="https://calendly.com/birlaani/new-meeting"
               target="_blank"
               rel="noreferrer"
-              className="
-                inline-flex items-center gap-2 mt-6
-                px-5 py-3 rounded-lg
-                bg-gradient-to-r from-blue-600 to-blue-700
-                text-white text-sm font-semibold
-                hover:from-blue-700 hover:to-blue-800
-                transition shadow-md
-              "
+              className="group flex items-center gap-2 px-6 py-3 rounded-xl border border-blue-500/30 bg-blue-500/10 text-blue-400 text-sm font-medium hover:bg-blue-500 hover:text-white transition-all duration-300"
             >
-              <FaCalendarAlt />
-              Book a Call
+              <FaCalendarAlt className="group-hover:scale-110 transition-transform" />
+              Schedule a Sync
             </a>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="border-t border-slate-200 mt-12 pt-6 text-center text-sm text-slate-500">
-          © {new Date().getFullYear()} Anisha Birla · All rights reserved
+        {/* Legal & Version Info */}
+        <div className="border-t border-slate-900 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[12px] font-light text-slate-600">
+          <p>© {new Date().getFullYear()} Anisha Birla</p>
+          <div className="flex gap-6 italic">
+            <span>Built with React & Tailwind</span>
+            <span>v2.0.26</span>
+          </div>
         </div>
 
       </div>

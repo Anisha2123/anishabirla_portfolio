@@ -1,256 +1,237 @@
-
-import "../App.css";
-import { useState } from "react";
-
-import {
-  FaExternalLinkAlt,
-  FaGithub,
-  FaChartLine,
-  FaTooth,
-  FaBrain,
-  FaGraduationCap,
-  FaPalette,
-  FaChalkboardTeacher,
-} from "react-icons/fa";
+import React, { useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { 
+  ArrowRight, 
+  ArrowLeft, 
+  Github, 
+  Terminal, 
+  ExternalLink,
+  Shield,
+  Activity,
+  GraduationCap,
+  Zap 
+} from "lucide-react";
 
 const allProjects = [
   {
-  title: "Xsploit",
-  icon: <FaBrain />,
-  tech: [
-    "MERN",
-    "AWS EC2",
-    "AWS S3",
-    "CloudFront",
-    "Razorpay",
-    "Brevo"
-  ],
- description:
-  "Production-grade cybersecurity platform with OTP-based authentication offering structured courses, Razorpay payments, user dashboards, and scalable REST APIs deployed on AWS.",
-  date: "Nov 2025 - Dec 2025",
-  live: "https://www.xsploithack.com",
-  github: "https://github.com/Anisha2123/Xscploit_Lovelish"
-},
-  {
-    title: "PSDC",
-    icon: <FaChalkboardTeacher />,
-    tech: ["Angular", "Node.js", "MongoDB", "Razorpay", "AWS"],
-    description:
-      "A skill training platform for youth, built with Angular and Node.js. Features include course listing, admin dashboard, contact form, Razorpay payments, and full deployment on AWS.",
-    date: "May 2025 - Jun 2025",
-    live: "https://pratibhaskilldevelopment.com/",
-    github: "Private Repository (Institutional)",
+    id: "01",
+    title: "Xsploit",
+    category: "Cybersecurity Infrastructure",
+    tech: ["MERN", "AWS EC2", "CloudFront"],
+    description: "Architected a production-grade cybersecurity ecosystem with OTP-based auth. Optimized content delivery via AWS CloudFront to minimize global latency.",
+    live: "https://www.xsploithack.com",
+    github: "https://github.com/Anisha2123/Xscploit_Lovelish",
+    // Modern Network/Server visualization
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200", 
   },
   {
+    id: "02",
     title: "4eDentalAI",
-    icon: <FaTooth />,
-    tech: ["Angular", "Node.js", "MongoDB", "Stripe", "Calendly"],
-    description:
-      "An AI-powered dental assistant platform using Angular, Node.js, MongoDB. Includes X-ray analysis API, Stripe payments, Calendly scheduling, and real-time admin dashboards.",
-    date: "Jan 2025 - Feb 2025",
+    category: "AI Diagnostics System",
+    tech: ["Angular", "AI API", "Stripe"],
+    description: "AI-powered diagnostic platform. Integrated specialized computer vision APIs for X-ray analysis and automated clinical scheduling via Stripe.",
     live: "https://4edentalai.com",
-    github: "Private Repository (Institutional)",
+    github: null,
+    // High-end modern dental/medical technology
+    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1200",
   },
   {
+    id: "03",
+    title: "PSDC Platform",
+    category: "EdTech Scalability",
+    tech: ["Angular", "Node.js", "AWS"],
+    description: "High-throughput skill training platform. Engineered modular admin ecosystem and integrated payment gateways for institutional enrollment.",
+    live: "https://pratibhaskilldevelopment.com/",
+    github: null,
+    // Modern, clean educational interface vibe
+    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=1200",
+  },
+  {
+    id: "04",
     title: "TopDataCoach",
-    icon: <FaGraduationCap />,
-    tech: ["MERN Stack", "Stripe", "Admin Dashboard", "REST API"],
-    description:
-      "An online learning platform for data science and web dev with Stripe integration, role-based access, RESTful APIs, and admin dashboard.",
-    date: "Feb 2025 - Mar 2025",
-    live: "https://topdatacoach.com/",
-    github: "Private Repository (Institutional)",
-  },
-  
-  {
-    title: "Discord Color Generator",
-    icon: <FaPalette />,
-    tech: ["React", "TailwindCSS", "TypeScript"],
-    description:
-      "A responsive and animated color code generator for Discord themes. Users can preview and copy color combos, with sleek UI animations and accessibility features.",
-    date: "Mar 2025 - Mar 2025",
-    live: "https://video-dubber-task-tawny.vercel.app/",
-    github: "https://github.com/Anisha2123/VideoDubberTask",
-  },
+    category: "Enterprise LMS",
+    tech: ["MERN Stack", "Stripe", "RBAC"],
+    description: "Role-based learning management system. Engineered secure payment flows and hierarchical user permissions for granular data integrity.",
+    live: "https://topdatcoach.com/",
+    github: null,
+    // Clean data visualization and corporate dashboard
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200",
+  }
 ];
 
 const Projects = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [direction, setDirection] = useState(0);
+  const scrollAnchorRef = useRef(null);
+
   const projectsPerPage = 3;
   const totalPages = Math.ceil(allProjects.length / projectsPerPage);
+
+  const handlePagination = (newDirection) => {
+    const nextPage = currentPage + newDirection;
+    if (nextPage >= 1 && nextPage <= totalPages) {
+      if (window.innerWidth < 1024) {
+        const topOffset = scrollAnchorRef.current.offsetTop - 100;
+        window.scrollTo({ top: topOffset, behavior: "smooth" });
+      }
+      setDirection(newDirection);
+      setCurrentPage(nextPage);
+    }
+  };
 
   const currentProjects = allProjects.slice(
     (currentPage - 1) * projectsPerPage,
     currentPage * projectsPerPage
   );
 
-  const handlePrev = () => {
-    setCurrentPage((prev) => Math.max(prev - 1, 1));
-  };
-
-  const handleNext = () => {
-    setCurrentPage((prev) => Math.min(prev + 1, totalPages));
-  };
-
   return (
-     <section
-  id="projects"
-  className="py-28 bg-gray-50 text-gray-900"
->
-  <div className="max-w-6xl mx-auto px-6">
+    <section 
+      id="projects" 
+      ref={scrollAnchorRef}
+      className="relative py-20 md:py-32 bg-white text-gray-900 overflow-hidden"
+    >
+      {/* Background decoration matching Contact section */}
+      <div className="absolute top-0 left-0 translate-y-1/4 -translate-x-1/4 w-[600px] h-[600px] bg-blue-50/40 rounded-full blur-3xl -z-10"></div>
 
-    {/* Section Header */}
-    <div className="max-w-2xl mb-16">
-      <p className="text-sm uppercase tracking-widest text-blue-600 font-semibold mb-3">
-        Selected Work
-      </p>
-      <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-        Projects That Reflect Quality & Scale
-      </h2>
-      <p className="mt-4 text-gray-600 leading-relaxed">
-        A curated selection of real-world applications, platforms, and systems
-        built with performance, scalability, and business impact in mind.
-      </p>
-    </div>
-
-    {/* Projects Grid */}
-    <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-      {currentProjects.map((proj) => (
-        <div
-          key={proj.title}
-          className="
-            group bg-white rounded-3xl p-7
-            shadow-sm hover:shadow-xl
-            transition-all duration-300
-            flex flex-col justify-between
-          "
-        >
-          {/* Top Content */}
-          <div>
-            <div className="flex items-center gap-2 mb-2 text-blue-600 font-semibold">
-              {proj.icon}
-              <h3 className="text-lg">{proj.title}</h3>
-            </div>
-
-            <p className="text-xs text-gray-500 mb-4">
-              {proj.date}
-            </p>
-
-            <p className="text-gray-700 text-justify leading-relaxed text-sm">
-              {proj.description}
-            </p>
-
-            {/* Tech Stack */}
-            <div className="flex flex-wrap gap-2 mt-5">
-              {proj.tech.map((tech) => (
-                <span
-                  key={tech}
-                  className="
-                    text-xs px-3 py-1 rounded-full
-                    bg-gray-100 text-gray-700
-                    font-medium
-                  "
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+        
+        {/* HEADER: Matching Contact typography */}
+        {/* <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-24 gap-8">
+          <div className="max-w-2xl">
+            <h2 className="text-[11px] uppercase tracking-[0.3em] text-blue-600 font-semibold mb-6">
+              Engineering Lab
+            </h2>
+            <h3 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-tight">
+              Selected <span className="text-blue-600">Shipments</span> <br className="hidden md:block" />
+              & Production Work.
+            </h3>
           </div>
-
-          {/* Footer Actions */}
-          <div className="flex items-center gap-6 mt-8 text-sm font-medium">
-            <a
-              href={proj.live}
-              target="_blank"
-              rel="noreferrer"
-              className="
-                text-blue-600 hover:text-blue-800
-                flex items-center gap-1
-                transition
-              "
-            >
-              View Live <FaExternalLinkAlt size={13} />
-            </a>
-
-            {proj.github && proj.github !== "Private Repository (Institutional)" ? (
-              <a
-                href={proj.github}
-                target="_blank"
-                rel="noreferrer"
-                className="
-                  text-gray-600 hover:text-gray-900
-                  flex items-center gap-1
-                  transition
-                "
-              >
-                Source <FaGithub size={15} />
-              </a>
-            ) : (
-              <span className="text-xs italic text-gray-400">
-                Private / Institutional
-              </span>
-            )}
+          <p className="text-gray-600 text-lg font-light leading-relaxed max-w-xs border-l border-gray-100 pl-6 hidden lg:block">
+            Architecting for scale through refined engineering principles.
+          </p>
+        </div> */}
+         {/* HEADER: Massive on Desktop, Sharp & Clean on Mobile */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 md:mb-24 gap-4 md:gap-8">
+          <div className="max-w-2xl">
+            <h2 className="text-[10px] uppercase tracking-[0.4em] text-blue-600 font-bold mb-3 md:mb-6">
+               Engineering Lab
+            </h2>
+            <h3 className="text-4xl md:text-5xl font-black tracking-tighter leading-none italic">
+              Selected Shipments <span className="text-slate-200">&</span> <br className="hidden md:block" /> 
+              Production <span className="text-slate-900">Work.</span>
+            </h3>
+          </div>
+          <div className="lg:max-w-xs pb-1 md:pb-2">
+            <p className="text-slate-400 text-[10px] md:text-sm font-bold leading-relaxed uppercase tracking-widest">
+              Engineered for scale. <br className="hidden md:block" />
+              Optimized for performance.
+            </p>
           </div>
         </div>
-      ))}
+
+        {/* PROJECTS CONTAINER */}
+        <div className="min-h-[400px] relative">
+          <AnimatePresence initial={false} custom={direction} mode="wait">
+            <motion.div
+              key={currentPage}
+              initial={{ opacity: 0, x: direction > 0 ? 30 : -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: direction < 0 ? 30 : -30 }}
+              transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12"
+            >
+             {currentProjects.map((proj) => (
+  <div 
+    key={proj.id} 
+    className="group flex flex-col h-full bg-white rounded-[2.5rem] p-4 border border-gray-50 shadow-xl shadow-blue-900/10 transition-all duration-500 hover:shadow-blue-900/20 hover:-translate-y-2"
+  >
+    {/* 1. Image Frame */}
+    <div className="relative w-full aspect-video rounded-[2rem] overflow-hidden bg-gray-50 mb-6 shadow-inner">
+      <img 
+        src={proj.image} 
+        alt={proj.title}
+        className="w-full h-full object-cover object-top transition-all duration-1000 group-hover:scale-105"
+      />
+      <div className="absolute top-4 left-4">
+          <span className="px-3 py-1 bg-white/95 backdrop-blur-md rounded-full text-[10px] font-bold text-blue-600 uppercase tracking-widest border border-blue-50 shadow-sm">
+              {proj.id}
+          </span>
+      </div>
     </div>
 
-    {/* Pagination – Clean & Subtle */}
-    {/* Pagination – Mobile-Friendly & Elegant */}
-<div className="mt-14 flex items-center justify-center gap-3 md:gap-6 text-sm font-medium text-gray-600">
+    {/* 2. Content Area */}
+    <div className="space-y-4 px-3 flex-grow flex flex-col">
+      <div className="flex items-center justify-between">
+        <h4 className="text-xl font-bold tracking-tight text-gray-900">
+          {proj.title}
+        </h4>
+        <div className="flex items-center gap-1.5 px-3 py-1 bg-blue-50 rounded-full border border-blue-100">
+           <div className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
+           <span className="text-[10px] font-bold text-blue-700 uppercase tracking-tighter">Live</span>
+        </div>
+      </div>
 
-  {/* Previous */}
-  <button
-    onClick={handlePrev}
-    disabled={currentPage === 1}
-    className="
-      flex items-center justify-center gap-2
-      h-10 px-4 md:px-5
-      rounded-full
-      bg-white border border-gray-300
-      hover:border-blue-600 hover:text-blue-600
-      disabled:opacity-40
-      transition
-    "
-  >
-    <span className="text-lg">←</span>
-    <span className="hidden md:inline">Previous</span>
-  </button>
+      <div className="flex items-center gap-2 text-[10px] font-semibold text-gray-400 uppercase tracking-wider">
+         <Terminal size={12} className="text-blue-500 opacity-60" />
+         {proj.category}
+      </div>
 
-  {/* Page Indicator */}
-  <span className="
-    px-4 py-2
-    rounded-full
-    bg-gray-100 text-gray-600
-    text-xs md:text-sm
-  ">
-    {currentPage} / {totalPages}
-  </span>
+      <p className="text-gray-600 text-sm leading-relaxed font-medium line-clamp-3">
+        {proj.description}
+      </p>
 
-  {/* Next */}
-  <button
-    onClick={handleNext}
-    disabled={currentPage === totalPages}
-    className="
-      flex items-center justify-center gap-2
-      h-10 px-4 md:px-5
-      rounded-full
-      bg-white border border-gray-300
-      hover:border-blue-600 hover:text-blue-600
-      disabled:opacity-40
-      transition
-    "
-  >
-    <span className="hidden md:inline">Next</span>
-    <span className="text-lg">→</span>
-  </button>
-
-</div>
-
-
+      {/* 3. Footer Actions */}
+      <div className="flex items-center gap-6 pt-6 mt-auto border-t border-gray-50">
+        <a href={proj.live} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-gray-900 hover:text-blue-600 transition-colors group/link">
+          Launch <ArrowRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
+        </a>
+        {proj.github && (
+          <a href={proj.github} target="_blank" rel="noreferrer" className="p-2 bg-gray-50 rounded-full text-gray-400 hover:text-gray-900 transition-all hover:bg-gray-100">
+            <Github size={18} />
+          </a>
+        )}
+      </div>
+    </div>
   </div>
-</section>
+))}
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
+        {/* NAVIGATION: Pill Style & Soothing Shadows */}
+        <div className="mt-20 flex flex-col md:flex-row items-center justify-between border-t border-gray-100 pt-10 gap-8">
+           
+           <div className="flex items-center gap-5">
+              <div className="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center text-xs font-medium text-gray-400 bg-gray-50">
+                {currentPage}
+              </div>
+              <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.3em]">
+                Registry Index <span className="mx-2 text-gray-200">/</span> {totalPages}
+              </p>
+           </div>
+
+           <div className="flex gap-4 w-full md:w-auto">
+              <button 
+                onClick={() => handlePagination(-1)}
+                disabled={currentPage === 1}
+                className="flex-1 md:flex-none flex items-center justify-center gap-3 px-8 py-3.5 rounded-full bg-white border border-gray-200 text-[11px] font-bold uppercase tracking-widest text-gray-400 hover:text-blue-600 disabled:opacity-20 transition-all active:scale-95 shadow-sm"
+              >
+                <ArrowLeft size={16} />
+                Prev
+              </button>
+              <button 
+                onClick={() => handlePagination(1)}
+                disabled={currentPage === totalPages}
+                className="flex-1 md:flex-none flex items-center justify-center gap-3 px-8 py-3.5 rounded-full bg-blue-600 text-[11px] font-bold uppercase tracking-widest text-white hover:bg-blue-700 disabled:opacity-20 transition-all shadow-lg shadow-blue-600/20 active:scale-95"
+              >
+                Next
+                <ArrowRight size={16} />
+              </button>
+           </div>
+        </div>
+
+      </div>
+    </section>
   );
 };
 
