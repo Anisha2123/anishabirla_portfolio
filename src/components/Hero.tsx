@@ -41,7 +41,7 @@ const Hero = () => {
       <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
         
         {/* TEXT CONTENT */}
-        <div className="max-sm:space-y-8 md:space-y-20 lg:space-y-4 text-center lg:text-left">
+        <div className="max-sm:space-y-5 md:space-y-20 lg:space-y-4 text-center lg:text-left">
           
           {/* SDE Badge */}
           <div className="py-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-[10px] md:text-xs font-bold tracking-widest uppercase mx-auto lg:mx-0">
