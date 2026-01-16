@@ -93,15 +93,15 @@ const Footer = () => {
         </div>
 
         {/* Legal & Version Info */}
-        <div className="border-t border-slate-900 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[12px] font-light text-slate-600">
-          <p>© {new Date().getFullYear()} Anisha Birla</p>
-          <div className="flex gap-6 italic">
-            <span>Built with React & Tailwind</span>
-            <span>v2.0.26</span>
-          </div>
+        {/* <div className="border-t border-slate-900 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[12px] font-light text-slate-600"> */}
+          {/* <p>© {new Date().getFullYear()} Anisha Birla</p> */}
+          {/* <div className="flex gap-6 italic"> */}
+            {/* <span>Built with React & Tailwind</span> */}
+            {/* <span>v2.0.26</span> */}
+          {/* </div> */}
         </div>
 
-      </div>
+      {/* </div> */}
     </footer>
   );
 };

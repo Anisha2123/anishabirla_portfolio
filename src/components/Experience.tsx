@@ -45,7 +45,7 @@ const experiences = [
       "Integrated Razorpay gateways and secure AWS S3 storage solutions.",
       "Developed real-time analytics dashboards for student tracking."
     ],
-    icon: <Cpu className="text-slate-600" size={18} />
+    icon: <Cpu className="text-indigo-600" size={18} />
   }
 ];
 
