@@ -44,7 +44,7 @@ const Hero = () => {
         <div className="max-sm:space-y-5 md:space-y-20 lg:space-y-4 text-center lg:text-left">
           
           {/* SDE Badge */}
-          <div className="py-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-[10px] md:text-xs font-bold tracking-widest uppercase mx-auto lg:mx-0">
+          <div className="mt-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-[10px] md:text-xs font-bold tracking-widest uppercase mx-auto lg:mx-0">
             <span className="flex h-2 w-2 rounded-full bg-blue-600 animate-pulse"></span>
             Software Engineer & Systems Builder
           </div>
