@@ -8,8 +8,8 @@ const experiences = [
     role: "Founder & Lead Full Stack Developer",
     type: "Startup",
     location: "Remote",
-    link: "#", 
-    tech: ["Next.js", "Go", "AWS", "Redis", "PostgreSQL"],
+    link: "https://devlyn-webs.vercel.app/", 
+    tech: ["Next.js", "MERN", "AWS", "Redis", "Angular"],
     description: [
       "Architected a high-throughput digital infrastructure solution.",
       "Engineered a distributed microservices architecture for 99.9% uptime.",
@@ -24,7 +24,7 @@ const experiences = [
     type: "Full Time",
     location: "Hyderabad",
     link: "https://www.pal.tech/",
-    tech: ["PySpark", "Databricks", "SQL", "Azure"],
+    tech: [ "Databricks", "SQL", "ETL", "Power BI"],
     description: [
       "Optimized SQL Warehouse solutions, improving query performance by 25%.",
       "Developed scalable ETL pipelines processing multi-terabyte datasets.",

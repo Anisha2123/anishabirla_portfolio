@@ -90,7 +90,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="bg-white rounded-[2rem] px-7 md:p-7 shadow-xl shadow-blue-900/5 border border-gray-100 relative"
+            className="bg-white rounded-[2rem] px-7 p-7 shadow-xl shadow-blue-900/5 border border-gray-100 relative"
           >
             <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center lg:text-left">
               Send a message
