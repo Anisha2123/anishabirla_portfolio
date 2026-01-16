@@ -4,30 +4,31 @@ import { Cpu, Globe, Database, Terminal, Layers, Cloud, ChevronRight } from "luc
 const skillGroups = [
   {
     category: "01. Core Systems",
-    icon: <Cpu size={20} className="text-blue-600" />,
+    // Remove the text-blue-600 from here so it can be controlled by the parent
+    icon: <Cpu size={20} />, 
     lead: "Data Structures, Algorithms & Design Patterns.",
-    details: "Specializing in Big-O optimization, concurrent processing, and memory-efficient architecture. Core focus on standard problem solving.",
+    details: "Specializing in Big-O optimization, concurrent processing, and memory-efficient architecture.",
     tags: ["C++", "DSA Mastery", "System Design", "OS Fundamentals"]
   },
   {
     category: "02. Infrastructure",
-    icon: <Cloud size={20} className="text-blue-600" />,
+    icon: <Cloud size={20} />,
     lead: "Distributed Systems & Cloud-Native Engineering.",
-    details: "Architecting high-throughput backends with horizontal scalability. Managing microservices and automated deployment pipelines.",
+    details: "Architecting high-throughput backends with horizontal scalability and automated pipelines.",
     tags: ["AWS", "Node.js", "Redis", "Docker", "CI/CD"]
   },
   {
     category: "03. Data Engineering",
-    icon: <Database size={20} className="text-blue-600" />,
+    icon: <Database size={20} />,
     lead: "Big Data Processing & Warehouse Management.",
-    details: "Building ETL pipelines that handle multi-terabyte datasets. Optimizing SQL schemas and NoSQL document structures for speed.",
+    details: "Building ETL pipelines that handle multi-terabyte datasets and optimizing SQL schemas.",
     tags: ["SQL", "MongoDB", "Databricks", "PySpark", "ETL"]
   },
   {
     category: "04. Web Interfaces",
-    icon: <Globe size={20} className="text-blue-600" />,
+    icon: <Globe size={20} />,
     lead: "Modern Frontend & High-Performance UI.",
-    details: "Crafting modular, accessible, and fast web experiences using modern frameworks and optimized rendering strategies.",
+    details: "Crafting modular, accessible, and fast web experiences using modern frameworks.",
     tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer"]
   }
 ];
@@ -38,7 +39,7 @@ const Skills = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         
         {/* HEADER: Massive on Desktop, Sharp & Clean on Mobile */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 md:mb-24 gap-4 md:gap-8">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 md:mb-24 gap-4 md:gap-8 ">
           <div className="max-w-2xl">
             <h2 className="text-[10px] uppercase tracking-[0.4em] text-blue-600 font-bold mb-3 md:mb-6">
               Technical Competencies
@@ -65,10 +66,12 @@ const Skills = () => {
             >
               {/* Column 1: Index & Icon (Compact on Mobile) */}
               <div className="lg:col-span-3 flex items-center lg:items-start lg:flex-col justify-between">
-                <div className="flex items-center lg:block gap-4">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-blue-50 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
-                    {group.icon}
-                  </div>
+                <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 mb-6">
+                {/* ICON CONTAINER: Fixed Hover Logic */}
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500 shrink-0">
+                  {/* The icon now inherits the text-blue-600 or white based on the parent div */}
+                  {group.icon}
+                </div>
                   <h4 className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-slate-400 mt-0 lg:mt-6">
                     {group.category}
                   </h4>

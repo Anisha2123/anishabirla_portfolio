@@ -55,7 +55,7 @@ const Experience = () => {
       <div className="max-w-5xl mx-auto px-5 sm:px-8">
         
         {/* Section Header - Optimized for Mobile Reading */}
-        <div className="mb-12 md:mb-20 text-center md:text-left">
+        <div className="mb-12 md:mb-20 ">
           <h2 className="text-[10px] md:text-sm uppercase tracking-[0.2em] text-blue-600 font-bold mb-3">
             Professional Roadmap
           </h2>
