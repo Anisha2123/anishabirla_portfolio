@@ -20,22 +20,27 @@ const Navbar = () => {
     { id: "contact", label: "Contact" },
   ];
 
-  const scrollToSection = (id: string) => {
-    const section = document.getElementById(id);
-    if (section) {
-      const offset = 80; 
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = section.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
+ const scrollToSection = (id: string) => {
+  const section = document.getElementById(id);
+  
+  if (section) {
+    // 1. Close menu first so the layout stabilizes
+    setMenuOpen(false);
+
+    // 2. Use a small timeout so the browser can recalculate 
+    // the layout after the menu starts closing
+    setTimeout(() => {
+      const offset = 80; // Navbar height
+      const elementPosition = section.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
 
       window.scrollTo({
         top: offsetPosition,
         behavior: "smooth",
       });
-      setMenuOpen(false);
-    }
-  };
+    }, 10); // A tiny 10ms delay is enough to fix the mobile "jump"
+  }
+};
 
   return (
     <nav 

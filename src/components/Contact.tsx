@@ -71,13 +71,13 @@ const Contact = () => {
                 Other ways to connect
               </h3>
               <div className="flex flex-wrap justify-center lg:justify-start gap-4">
-                <a href="#" className="p-3 bg-white text-gray-600 hover:text-blue-600 border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-all">
+                <a href="https://www.linkedin.com/in/anishabirla/" className="p-3 bg-white text-gray-600 hover:text-blue-600 border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-all">
                     <FaLinkedin size={20} />
                 </a>
-                 <a href="#" className="p-3 bg-white text-gray-600 hover:text-gray-900 border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-all">
+                 <a href="https://github.com/Anisha2123" className="p-3 bg-white text-gray-600 hover:text-gray-900 border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-all">
                     <FaGithub size={20} />
                 </a>
-                <a href="mailto:your.email@example.com" className="flex items-center gap-2 px-4 py-3 bg-white text-gray-600 hover:text-blue-600 border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-all font-medium">
+                <a href="mailto:birlaani@gmail.com" className="flex items-center gap-2 px-4 py-3 bg-white text-gray-600 hover:text-blue-600 border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-all font-medium">
                     <FaEnvelope />
                     <span>Email Me directly</span>
                 </a>
