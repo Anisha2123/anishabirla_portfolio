@@ -68,7 +68,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center bg-[#fcfcfd] overflow-hidden"
+      className="relative min-h-screen flex items-center bg-[#fcfcfd] overflow-hidden pt-20 lg:pt-24"
     >
       <style>{`
         @keyframes float-gentle {
@@ -98,7 +98,7 @@ const Hero = () => {
       />
 
       {/* ── MAIN LAYOUT ── */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-10 lg:px-16 py-24 sm:py-28 lg:py-0 min-h-screen lg:min-h-0 flex items-center">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-10 lg:px-16 pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-0 lg:pb-0 min-h-screen lg:min-h-0 flex items-center">
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-16 items-center">
 
           {/* ── LEFT: TEXT ── */}
