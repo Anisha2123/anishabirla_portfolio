@@ -5,7 +5,7 @@ const experiences = [
   {
     title: "Devlyn",
     date: "Jan 2026 - Present",
-    role: "Founder & Lead Full Stack Developer",
+    role: "Lead Full Stack Developer",
     type: "Startup",
     location: "Remote",
     link: "https://devlyn-webs.vercel.app/", 

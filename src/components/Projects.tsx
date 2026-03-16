@@ -13,8 +13,32 @@ import {
 } from "lucide-react";
 
 const allProjects = [
-  {
+   {
     id: "01",
+    title: "RealOrganic",
+    category: "Quick Commerce Platform",
+    tech: ["MERN Stack", "AWS EC2", "Razorpay", "Brevo"],
+    description:
+      "Engineered a production-grade 13-minute grocery delivery platform with scalable order pipelines, secure payment integration, and real-time product/catalog management deployed on AWS infrastructure.",
+    live: "https://www.reallorganic.com/",
+    github: null,
+    image:
+      "https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1200",
+  },
+  {
+    id: "02",
+    title: "Dr Nishant Ortho",
+    category: "Healthcare Web Platform",
+    tech: ["React", "Vite", "Modern CSS"],
+    description:
+      "Developed the official website for Dr. Nishant Verma, Consultant Orthopaedic Surgeon, showcasing advanced orthopedic treatments with a high-performance React interface.",
+    live: "https://www.drnishantortho.com/",
+    github: null,
+    image:
+      "/image.png",
+  },
+  {
+    id: "03",
     title: "Xsploit",
     category: "Cybersecurity Infrastructure",
     tech: ["MERN", "AWS EC2", "CloudFront"],
@@ -25,7 +49,7 @@ const allProjects = [
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200", 
   },
   {
-    id: "02",
+    id: "04",
     title: "4eDentalAI",
     category: "AI Diagnostics System",
     tech: ["Angular", "AI API", "Stripe"],
@@ -36,7 +60,7 @@ const allProjects = [
     image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1200",
   },
   {
-    id: "03",
+    id: "05",
     title: "PSDC Platform",
     category: "EdTech Scalability",
     tech: ["Angular", "Node.js", "AWS"],
@@ -45,17 +69,6 @@ const allProjects = [
     github: null,
     // Modern, clean educational interface vibe
     image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=1200",
-  },
-  {
-    id: "04",
-    title: "TopDataCoach",
-    category: "Enterprise LMS",
-    tech: ["MERN Stack", "Stripe", "RBAC"],
-    description: "Role-based learning management system. Engineered secure payment flows and hierarchical user permissions for granular data integrity.",
-    live: "https://topdatcoach.com/",
-    github: null,
-    // Clean data visualization and corporate dashboard
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200",
   }
 ];
 
