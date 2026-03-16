@@ -129,7 +129,7 @@ const Hero = () => {
                   startDelay={500}
                   cursorColor="#2563EB"
                   multiText={[
-                    "Founder @ Devlyn",
+                    "Full Stack Developer @ Devlyn",
                     "Full-Stack Architecture",
                     "Algorithmic Problem Solver",
                     "Performance Optimization",
