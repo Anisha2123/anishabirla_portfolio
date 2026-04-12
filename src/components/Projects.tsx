@@ -13,8 +13,32 @@ import {
 } from "lucide-react";
 
 const allProjects = [
+  {
+  id: "01",
+  title: "Kalasrijan",
+  category: "Art & Skill Learning Platform",
+  tech: ["React", "Node.js", "MongoDB", "Modern CSS"],
+  description:
+    "Built the official platform for Kalasrijan by Suman Jain, offering structured courses across 200+ art forms. Designed a scalable learning system serving 25,000+ students with seamless course browsing, enrollment, and content delivery.",
+  live: "https://kalasrijan.co.in/",
+  github: null,
+  image:
+    "/kalasrijan.png"
+},
+{
+    id: "03",
+    title: "Dr Nishant Ortho",
+    category: "Healthcare Web Platform",
+    tech: ["React", "Vite", "Modern CSS"],
+    description:
+      "Developed the official website for Dr. Nishant Verma, Consultant Orthopaedic Surgeon, showcasing advanced orthopedic treatments with a high-performance React interface.",
+    live: "https://www.drnishantortho.com/",
+    github: null,
+    image:
+      "/drnishant.png",
+  },
    {
-    id: "01",
+    id: "02",
     title: "RealOrganic",
     category: "Quick Commerce Platform",
     tech: ["MERN Stack", "AWS EC2", "Razorpay", "Brevo"],
@@ -26,19 +50,19 @@ const allProjects = [
       "https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1200",
   },
   {
-    id: "02",
-    title: "Dr Nishant Ortho",
-    category: "Healthcare Web Platform",
-    tech: ["React", "Vite", "Modern CSS"],
-    description:
-      "Developed the official website for Dr. Nishant Verma, Consultant Orthopaedic Surgeon, showcasing advanced orthopedic treatments with a high-performance React interface.",
-    live: "https://www.drnishantortho.com/",
-    github: null,
-    image:
-      "/image.png",
-  },
+  id: "07",
+  title: "Devlyn Webs",
+  category: "Digital Services Platform",
+  tech: ["React", "Node.js", "MongoDB", "Modern CSS"],
+  description:
+    "Developed a business-focused digital services platform for Devlyn Webs, offering website development and social media marketing solutions. Built a high-conversion interface with service showcases, lead generation flows, and optimized user experience for client acquisition.",
+  live: "https://devlynwebs.com/",
+  github: null,
+  image:
+    "/devlyn.png"
+},
   {
-    id: "03",
+    id: "04",
     title: "Xsploit",
     category: "Cybersecurity Infrastructure",
     tech: ["MERN", "AWS EC2", "CloudFront"],
@@ -46,10 +70,10 @@ const allProjects = [
     live: "https://www.xsploithack.com",
     github: "https://github.com/Anisha2123/Xscploit_Lovelish",
     // Modern Network/Server visualization
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200", 
+    image: "/xsploit.png", 
   },
   {
-    id: "04",
+    id: "05",
     title: "4eDentalAI",
     category: "AI Diagnostics System",
     tech: ["Angular", "AI API", "Stripe"],
@@ -60,7 +84,7 @@ const allProjects = [
     image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1200",
   },
   {
-    id: "05",
+    id: "06",
     title: "PSDC Platform",
     category: "EdTech Scalability",
     tech: ["Angular", "Node.js", "AWS"],
@@ -68,7 +92,7 @@ const allProjects = [
     live: "https://pratibhaskilldevelopment.com/",
     github: null,
     // Modern, clean educational interface vibe
-    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=1200",
+    image: "/psdc.png",
   }
 ];
 

@@ -3,27 +3,34 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/NavBar";
 import Footer from "./components/Footer";
-import Home from "./pages1/Home";
+// import Home from "./pages1/Home";
+import { HelmetProvider } from "react-helmet-async";
+import { lazy, Suspense } from "react";
 
+const Home = lazy(() => import("./pages1/Home"));
 import "./App.css";
 
 
 const App = () => {
   return (
-    // <ThemeProvider>
+      <HelmetProvider>
       <Router>
-        {/* Persistent Navbar */}
         <Navbar />
-    {/* <CustomCursor /> */}
-        {/* Routes */}
+
         <Routes>
-          <Route path="/" element={<Home />} />
+            <Route
+    path="/"
+    element={
+      <Suspense fallback={<div>Loading...</div>}>
+        <Home />
+      </Suspense>
+    }
+  />
         </Routes>
 
-        {/* Persistent Footer */}
         <Footer />
       </Router>
-    // </ThemeProvider>
+    </HelmetProvider>
   );
 };
 
